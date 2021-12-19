@@ -1,15 +1,13 @@
 package ru.skypro.lesson8;
 
 public class Author {
-     String firstName;
-     String secondName;
+     private String firstName;
+     private String secondName;
 
     public Author(String firstName, String secondName) {
         this.firstName = firstName;
         this.secondName = secondName;
     }
-
-
 
     public  String getAuthorFirstName(){
         return this.firstName;

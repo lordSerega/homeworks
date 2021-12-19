@@ -1,21 +1,21 @@
 package ru.skypro.lesson8;
 
-public class BooksCollection {
+public class Library {
 
     private Book[] books;
 
-    public BooksCollection(int size) {
+    public Library(int size) {
         books = new Book[size];
     }
 
-    public void add(Book book) {
+    public boolean add(Book book) {
         for (int i = 0; i < books.length; i++) {
             if (books[i] == null) {
                 books[i] = book;
-                break;
+                return true;
             }
-
         }
+        return false;
 
     }
 
@@ -25,8 +25,12 @@ public class BooksCollection {
         int year = book.getYear();
         String fN = book.getAuthor().getAuthorFirstName();
         String sN = book.getAuthor().getAuthorSecondName();
-        System.out.println("Книга: " + name + "; Автор: " + fN + " " + " " + sN + "; Год издания: " + year);
+        String fullAuthor = fN + " " + sN;
+
+        String result = String.format("%s by %s was published in %d", name, fullAuthor, year);
+        System.out.println(result);
     }
+
 
     public void printBookByName(String bookName) {
         for (Book book : books) {
@@ -44,10 +48,8 @@ public class BooksCollection {
                 book.setYear(newYear);
                 return true;
             }
-
         }
         return false;
     }
-
 
 }
